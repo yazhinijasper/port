@@ -1,0 +1,714 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: whitesmoke;
+    background: lightsalmon;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: coral;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+
+.logo {
+    position: relative;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    cursor: default;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    margin-left: 30px;
+    transition: .3s;
+    text-transform: capitalize;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.3s *var(--i));
+}
+
+.navbar a:hover {
+    color: teal;
+}
+
+.btn_box {
+    display: inline-block;
+    padding: 12px 20px;
+    background: coral;
+    border: 50px 25px;
+    font-size: 16px;
+    color: teal;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: .9s;
+    box-shadow: 0 0 5px coral, 0 0 25px coral;
+
+
+}
+
+.btn_box:hover {
+    box-shadow: 0 0 5px teal, 0 0 25px teal,
+        0 0 50px teal, 0 0 100px teal,
+        0 0 200px teal
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    background: url(coralbackground1.jpg)no-repeat;
+    background-position: center;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: baseline;
+    padding: 250px 10% 0;
+}
+
+.home-content {
+    max-width: 500px;
+
+}
+
+.home-content h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+
+}
+
+.home-content h3 span {
+    color: teal;
+
+
+}
+
+.home-content h1 {
+    font-size: 40px;
+    font-weight: 500;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: .5s;
+}
+
+.home-content p {
+    font-size: 20px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: .5s;
+}
+
+.social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid teal;
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    background: transparent;
+    border-radius: 50%;
+    font-size: 20px;
+    color: teal;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft .5s ease forwards;
+    animation-delay: calc(.2s *var(--i));
+}
+
+.social a:hover {
+    background: teal;
+    color: coral;
+    box-shadow: 0 0 20px teal;
+}
+
+
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-transform: capitalize;
+
+}
+
+.about_img img {
+    padding-bottom: 20%;
+    padding-top: 20%;
+    padding-left: 10%;
+    max-width: 630px;
+    height: auto;
+    width: 100%;
+    border-radius: 8%;
+
+}
+
+
+.about_text h2 {
+    font-size: 60px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+
+}
+
+.about_text h2 span {
+    color: teal;
+    text-transform: capitalize;
+}
+
+.about_text h4 {
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+    line-height: 1.7;
+    margin: 15px 0 30px;
+
+}
+
+.about_text p {
+    color: white;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 4rem;
+
+}
+
+
+/* Skills Styles */
+.technical-bars {
+    display: flex;
+    flex-direction: column;
+    .section1 {
+        height: 500px;
+        width: 100%;
+    }
+    
+
+    .technical-bars{ 
+        display: flex;
+        flex-direction: column;gap: 20px;
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info {
+    flex: 1;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.progress-line {
+    flex: 2;
+    position: relative;
+    border-radius: 10px;
+    height: 20px;
+    background-color: #f3f3f3;
+    overflow: hidden;
+}
+
+.progress-line span {
+    display: block;
+    height: 100%;
+    background-color: teal;
+    border-radius: 10px;
+    width: 0;
+    animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+    position: relative;
+}
+
+.progress-line span::after {
+    content: attr(data-percentage) '%';
+    position: absolute;
+    right: -25px;
+    top: -5px;
+    background-color: #333;
+    color: #f3f3f3;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.html span {
+    width: 90%;
+}
+
+.css span {
+    width: 80%;
+}
+
+.javascript span {
+    width: 70%;
+}
+
+.react span {
+    width: 75%;
+}
+
+.python span {
+    width: 60%;
+}
+
+@keyframes animate {
+    to {
+        width: var(--width);
+    }
+}
+
+.radial-bars {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.radial-bars .radial-bar {
+    width: 120px;
+    height: 170px;
+    position: relative;
+    text-align: center;
+    margin: 20px;
+}
+
+.radial-bars .radial-bar svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 120px;
+    height: 160px;
+}
+
+.radial-bars .radial-bar .progress-bar {
+    stroke-width: 10;
+    stroke: #ddd;
+    fill: transparent;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    stroke-linecap: round;
+}
+
+.radial-bars .radial-bar .path {
+    stroke-width: 10;
+    stroke: lavender;
+    fill: transparent;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    stroke-linecap: round;
+    animation: animate-path 1s linear forwards;
+}
+
+.path-1 {
+    animation: animate-path1 1s 1s linear forwards;
+}
+
+.radial-bar .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;
+    font-weight: 500;
+    color: lavender;
+    animation: showText .5s 1.5s linear forwards;
+    opacity: 0;
+}
+
+.radial-bar .text {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    font-size: 17px;
+    font-weight: 500;
+    animation: showText .5s 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes showText {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes animate {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes animate-path {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes animate-path1 {
+    100% {
+        stroke-dashoffset: 50;
+    }
+}
+
+@keyframes animate-path2 {
+    100% {
+        stroke-dashoffset: 175;
+    }
+}
+
+@keyframes animate-path3 {
+    100% {
+        stroke-dashoffset: 120;
+    }
+}
+
+@keyframes animate-path4 {
+    100% {
+        stroke-dashoffset: 75;
+    }
+}
+
+@keyframes animate-bar {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+
+    }
+
+}
+
+.section {
+    height: 500px;
+    width: 100%;
+}
+
+
+
+.headingp h2 {
+    color: whitesmoke;
+    font-size: 55px;
+    
+    padding-top: 35px;
+    padding-left: 35px;
+}
+
+.headingp h2 span {
+    color: teal;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 10px;
+    background-color: lightsalmon;
+    border: 4px solid lightsalmon;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.portfolio-item {
+    background-color:lightsalmon;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 1s ease;
+}
+
+.portfolio-item h3 {
+    margin-top: 0;
+}
+
+.portfolio-item a {
+    font-size: 18px;
+    color: teal;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid teal;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.portfolio-item a:hover {
+    background-color: teal;
+    color: white;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 3rem;
+    padding-left: 30px;
+    margin-top: 130px;
+
+}
+
+.contact-text h2 {
+    font-size: 90px;
+    line-height: 1;
+    text-align: center;
+}
+
+.contact-text h2 span {
+    color: lavender;
+}
+
+.contact-text h4 {
+    margin: 15px 0;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-text p {
+    color: whitesmoke;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 2rem;
+}
+
+.contactlist {
+
+    margin-bottom: 3rem;
+}
+
+.contactlist li {
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+.contactlist i {
+    display: inline-block;
+    color: teal;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all, .40s ease;
+
+}
+
+.contactlist li a:hover {
+    transform: scale(1.01) translateY(-5px);
+    color: teal;
+}
+
+.contacticons i {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid teal;
+    border-radius: 50%;
+    font-size: 20px;
+    color: teal;
+    text-decoration: none;
+    margin: 30px 15px 30px;
+    transition: 0.5s;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s* var(--i));
+}
+
+
+.contacticons i:hover {
+    background: teal;
+    color: coral;
+    box-shadow: 0 0 20px lavender;
+}
+
+.contactform {
+    position: relative;
+}
+
+.contactform form input,
+form textarea {
+
+    border: none;
+    outline: none;
+    width: 90%;
+    padding: 18px;
+    background: lightgrey;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.contactform textarea {
+    resize: none;
+    height: 220px;
+}
+
+.contactform form .send {
+    display: inline-block;
+    padding: 14px 60px;
+    background: lightgrey;
+    border-radius: ;
+    font-size: 18px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px lightgrey, 0 0 25px lightgray;
+}
+
+.contactform form .send:hover {
+    box-shadow: 0 0 5px lightgrey, 0 0 25px lightgrey,
+        0 0 50px lightgray, 0 0 100px lightgray,
+        0 0 200px lightgray
+}
+
+.lasttext p {
+    width: 100%;
+    text-align: center;
+    padding: 25px;
+    background: coral;
+    font-weight: 300;
+    margin-top: 70px;
+}
+
+.top {
+    position: fixed;
+    bottom: 1rem;
+    right: 1.25rem;
+}
+
+.top i {
+    color: lavender;
+    background-color: coral;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: .5rem;
+}
